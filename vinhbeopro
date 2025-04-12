@@ -1,5 +1,5 @@
 getgenv().Dough = function()
-    local url = ''
+    local url = 'https://hostserver.porry.store/bloxfruit/bot/JobId/doughking'
     local chooses
     local foundServers = game:GetService('HttpService'):JSONDecode(game:HttpGet(url))
     for i,v in foundServers do 
