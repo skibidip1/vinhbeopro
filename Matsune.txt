@@ -1,66 +1,13 @@
-local MatsuneA1 = {};
-
-MatsuneA1["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
-MatsuneA1["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
-
-MatsuneA1["2"] = Instance.new("Frame", MatsuneA1["1"]);
-MatsuneA1["2"]["BorderSizePixel"] = 0;
-MatsuneA1["2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
-MatsuneA1["2"]["Size"] = UDim2.new(0, 50, 0, 50);
-MatsuneA1["2"]["Draggable"] = true
-MatsuneA1["2"]["Position"] = UDim2.new(0.20, 0, -0.1, 0);
-MatsuneA1["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-
-
-MatsuneA1["3"] = Instance.new("UICorner", MatsuneA1["2"]);
-MatsuneA1["3"]["CornerRadius"] = UDim.new(1, 0);
-
-MatsuneA1["4"] = Instance.new("TextButton", MatsuneA1["2"]);
-MatsuneA1["4"]["TextWrapped"] = true;
-MatsuneA1["4"]["BorderSizePixel"] = 0;
-MatsuneA1["4"]["TextSize"] = 14;
-MatsuneA1["4"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-MatsuneA1["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-MatsuneA1["4"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-MatsuneA1["4"]["Size"] = UDim2.new(0, 50, 0, 56);
-MatsuneA1["4"]["BackgroundTransparency"] = 1;
-MatsuneA1["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-MatsuneA1["4"]["Text"] = [[STOP TWEEN]];
-MatsuneA1["4"]["Position"] = UDim2.new(0, 0, -0.07273, 0);
-MatsuneA1["5"] = Instance.new("UIStroke", MatsuneA1["4"]);
-MatsuneA1["5"]["Color"] = Color3.fromRGB(255, 0, 0);
-
-MatsuneA1["6"] = Instance.new("UIStroke", MatsuneA1["2"]);
-MatsuneA1["6"]["Color"] = Color3.fromRGB(169, 238, 8);
-
-local function StopTween()
-    if _G.StopTween then
-        return
-    end
-    
-    _G.StopTween = true
-    wait()
-    local player = game.Players.LocalPlayer
-    local character = player.Character
-    if character and character:IsDescendantOf(game.Workspace) then
-        local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-        if humanoidRootPart then
-            humanoidRootPart.CFrame = humanoidRootPart.CFrame
-        end
-    end
-    wait()    
-    if character:FindFirstChild("BodyClip") then
-        character.BodyClip:Destroy()
-    end
-    if character:FindFirstChild("PartTele") then
-        character.PartTele:Destroy()
-    end
-    _G.StopTween = false
-end
-
-MatsuneA1["4"].MouseButton1Click:Connect(function()
-    StopTween()
-end)
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local Window = Fluent:CreateWindow({
+    Title="W-MB",
+    SubTitle="By W-MB", 
+    TabWidth=160, 
+    Theme="Darker",
+    Acrylic=false,
+    Size=UDim2.fromOffset(500, 320), 
+    MinimizeKey=Enum.KeyCode.End
+})
 
 _G.FastAttack = true
 
