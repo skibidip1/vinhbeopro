@@ -9,6 +9,13 @@ local Window = Fluent:CreateWindow({
     MinimizeKey=Enum.KeyCode.End
 })
 
+local MainTab = Window:AddTab({ Title = "Main", Icon = "home" })
+
+MainTab:AddParagraph({
+    Title = "W-MB Script",
+    Content = "UI đã load thành công!"
+})
+
 _G.FastAttack = true
 
 if _G.FastAttack then
